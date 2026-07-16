@@ -1,0 +1,58 @@
+{
+    "addons": {
+        "devTools": {
+            "enabled": true
+        }
+    },
+    "controller": {
+        "kinds": [
+            "Win32"
+        ]
+    },
+    "features": {
+        "ci": {
+            "enabled": false
+        },
+        "quality": {
+            "enabled": true
+        },
+        "release": {
+            "enabled": false
+        },
+        "vscode": {
+            "enabled": true
+        }
+    },
+    "license": {
+        "spdx": "AGPL-3.0-or-later"
+    },
+    "maafw": {
+        "channel": "stable",
+        "version": ""
+    },
+    "network": {
+        "mode": "auto"
+    },
+    "project": {
+        "displayName": "MaaVua",
+        "initialTemplate": "pipeline",
+        "slug": "maavua",
+        "version": "0.1.0"
+    },
+    "resources": [
+        {
+            "enabled": true,
+            "label": "Base",
+            "path": "resource/base",
+            "slug": "base"
+        }
+    ],
+    "runtime": {
+        "mfa": {
+            "channel": "stable",
+            "enabled": false,
+            "version": ""
+        }
+    },
+    "schemaVersion": 2
+}

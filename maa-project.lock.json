@@ -1,0 +1,159 @@
+{
+    "createdFiles": {
+        ".gitignore": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        ".prettierignore": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        ".vscode/extensions.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        ".vscode/settings.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "LICENSE": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "README.en.md": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "README.md": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "interface.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "maa-project.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "maatools.config.mts": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "package.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "pnpm-workspace.yaml": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/default_pipeline.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/image/empty.png": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/model/ocr/README.md": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/model/ocr/det.onnx": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/model/ocr/keys.txt": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/model/ocr/manifest.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/model/ocr/rec.onnx": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "resource/base/pipeline/tutorial.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "tasks/tutorial.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "tools/schema/custom.action.schema.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        },
+        "tools/schema/custom.recognition.schema.json": {
+            "createdAt": "2026-07-16T15:19:31.342Z",
+            "managed": false
+        }
+    },
+    "managedFiles": {
+        ".editorconfig": {
+            "hash": "fa205e6456c1010c9f57efebdfdb8f8062024a629f06a163fd3508d3153c5782",
+            "templateHash": "fa205e6456c1010c9f57efebdfdb8f8062024a629f06a163fd3508d3153c5782"
+        },
+        ".gitattributes": {
+            "hash": "7a4b8e4c2efa2036473526e0e4de5c09327ff3df189c62b1a1f320a1f23c7692",
+            "templateHash": "7a4b8e4c2efa2036473526e0e4de5c09327ff3df189c62b1a1f320a1f23c7692"
+        },
+        ".node-version": {
+            "hash": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53",
+            "templateHash": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53"
+        },
+        ".prettierrc.mjs": {
+            "hash": "1373a409da8add16690b95000ad26ad2c96f8498cc2db4e4a27ad182286acef7",
+            "templateHash": "1373a409da8add16690b95000ad26ad2c96f8498cc2db4e4a27ad182286acef7"
+        },
+        ".vscode/tasks.json": {
+            "hash": "de10dc5cac81a29b8c984b623e8e821649021f10267771af558559e3bdfef1b7",
+            "templateHash": "de10dc5cac81a29b8c984b623e8e821649021f10267771af558559e3bdfef1b7"
+        },
+        "tools/check-project.mjs": {
+            "hash": "74249894dc6dae7c5cd807d906782b94f78f6a2512015d5b534727f165a58d2f",
+            "templateHash": "74249894dc6dae7c5cd807d906782b94f78f6a2512015d5b534727f165a58d2f"
+        },
+        "tools/schema/interface.schema.json": {
+            "hash": "f398c5215a6a63edf45a5b8c5198557986ccafe52828598a8a46d428c8228e35",
+            "templateHash": "f398c5215a6a63edf45a5b8c5198557986ccafe52828598a8a46d428c8228e35"
+        },
+        "tools/schema/interface_config.schema.json": {
+            "hash": "af6fcc7d76b5da0292e67b615e52edf98e541be75f9becbd3cbcdc7710b521b6",
+            "templateHash": "af6fcc7d76b5da0292e67b615e52edf98e541be75f9becbd3cbcdc7710b521b6"
+        },
+        "tools/schema/interface_import.schema.json": {
+            "hash": "3fccaa1a4a65832af3a57638bf2be8884e2fc732c7aa8b2c9aa537805bac809f",
+            "templateHash": "3fccaa1a4a65832af3a57638bf2be8884e2fc732c7aa8b2c9aa537805bac809f"
+        },
+        "tools/schema/pipeline.schema.json": {
+            "hash": "8a27882185191e8cd951afccd9a2f88183c492b9c64ce203c70236ade81a947b",
+            "templateHash": "8a27882185191e8cd951afccd9a2f88183c492b9c64ce203c70236ade81a947b"
+        },
+        "tools/schema/schema-manifest.json": {
+            "hash": "1ab63677ce3093d35e3d70d3354aa440a62ff7e89b2b05ddd38eb846ff0e5ae3",
+            "templateHash": "1ab63677ce3093d35e3d70d3354aa440a62ff7e89b2b05ddd38eb846ff0e5ae3"
+        },
+        "tools/validate-schema.mjs": {
+            "hash": "9675457bbfe1f6fdf9f082452cd6f348b7f62a58c8f3d7c42053e8e3673956b9",
+            "templateHash": "9675457bbfe1f6fdf9f082452cd6f348b7f62a58c8f3d7c42053e8e3673956b9"
+        }
+    },
+    "pending": [
+        {
+            "command": "create-maa-project --update node-deps",
+            "kind": "node-deps",
+            "reason": "pnpm install failed during project creation: Command failed: pnpm install (exit code 1)"
+        }
+    ],
+    "schemaVersion": 2,
+    "template": {
+        "createdBy": "create-maa-project",
+        "lastUpdatedBy": "create-maa-project",
+        "templateVersion": "0.1.0"
+    }
+}
