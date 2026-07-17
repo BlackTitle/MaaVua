@@ -8,3 +8,39 @@ dist/
 debug/
 .create-maa-project/
 # END create-maa-project
+
+# Downloaded dependencies and temporary source trees
+/deps/
+/tmp/
+/MaaCommonAssets/
+
+# Local release and packaging artifacts
+/打包/
+/MFAAvalonia-*-win-*.zip
+*.log
+logs/
+
+# Local development and assistant state
+/.opencode/*
+!/.opencode/AGENTS.md
+/.idea/
+/.vs/
+*.suo
+*.user
+.env
+.env.*
+!.env.example
+
+# Tool caches and reports
+.pnpm-store/
+.npm/
+.cache/
+coverage/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -3,9 +3,15 @@ dist/
 .create-maa-project/
 .venv/
 .uv-cache/
+deps/
+tmp/
+MaaCommonAssets/
+打包/
+.opencode/
+.cache/
+coverage/
 pnpm-lock.yaml
 uv.lock
-MaaCommonAssets/
 resource/base/model/ocr/
 tools/schema/interface.schema.json
 tools/schema/interface_config.schema.json
