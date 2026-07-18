@@ -114,7 +114,8 @@ pnpm check:maa
 
 ### Git 提交规范
 
-- AI 或自动化工具完成文件修改和必要验证后，必须创建 Git 提交，不得只保留未提交改动
+- AI 或自动化工具每次完成相关文件修改和必要验证后，必须立即创建对应的 Git 提交，不得只保留未提交改动
+- 每次自动提交都必须根据实际修改选择合适的 Conventional Commits 类型、scope 和简洁明确的 description，禁止使用含糊或与改动不符的提交信息
 - 提交前检查 `git status`、`git diff` 和近期提交记录，只暂存本次任务涉及的文件，不得混入用户或其他任务的改动
 - 提交信息遵循 Conventional Commits，格式为 `<type>(<scope>): <description>`；没有合适 scope 时可省略
 - 常用 type 包括 `feat`、`fix`、`docs`、`refactor`、`test`、`chore`、`ci`、`build`、`perf` 和 `style`
