@@ -1,0 +1,809 @@
+{
+    "状态判定": {
+        "timeout": -1,
+        "next": [
+            "收起状态栏",
+            "跳过对话文本",
+            "副本攻击",
+            "对战结束确认",
+            "关闭对战窗口",
+            "进入副本",
+            "章节结束",
+            "任务判断可以完成",
+            "任务判断可以完成2",
+            "任务判断可以完成3",
+            "任务判断可以完成4",
+            "结束任务",
+            "任务下一步",
+            "寻找对战循环"
+        ],
+        "on_error": [
+            "黄色主线"
+        ],
+        "rate_limit": 500
+    },
+    "寻找对战循环": {
+        "desc": "正在寻找应对战怪物",
+        "timeout": 5000,
+        "rate_limit": 500,
+        "next": [
+            "寻找当前应对战1",
+            "寻找当前应对战2",
+            "寻找当前应对战3",
+            "寻找当前应对战脚下找补1",
+            "寻找当前应对战脚下找补2",
+            "寻找当前应对战脚下找补3",
+            "寻找当前应对战脚下找补4",
+            "寻找当前应对战脚下找补5",
+            "寻找当前应对战脚下找补6"
+        ],
+        "on_error": [
+            "状态判定"
+        ]
+    },
+    "收起状态栏": {
+        "pre_delay": 500,
+        "desc": "正在收起状态栏",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    -1,
+                    153,
+                    24,
+                    23
+                ],
+                "template": "StatusBarCollapse.png",
+                "threshold": 0.7,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "进入副本": {
+        "desc": "正在进入副本",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    994,
+                    540,
+                    108,
+                    36
+                ],
+                "expected": "进入副本"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "跳过对话文本": {
+        "post_delay": 500,
+        "desc": "正在跳过对话文本",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "jumptext.png",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 3000,
+        "next": [
+            "状态判定"
+        ],
+    },
+    "副本攻击": {
+        "rate_limit": 500,
+        "post_delay": 500,
+        "desc": "攻击怪物",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    872,
+                    504,
+                    99,
+                    65
+                ],
+                "expected": "攻击"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "对战结束确认"
+        ],
+        "on_error": [
+            "状态判定"
+        ],
+        "timeout": 500
+    },
+    "对战结束确认": {
+        "timeout": 500,
+        "rate_limit": 500,
+        "pre_delay": 500,
+        "desc": "确认对战结束",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    716,
+                    518,
+                    78,
+                    37
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭对战窗口"
+        ],
+        "on_error": [
+            "状态判定"
+        ]
+    },
+    "关闭对战窗口": {
+        "post_delay": 500,
+        "rate_limit": 1000,
+        "desc": "正在关闭对战窗口",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    938,
+                    68,
+                    83,
+                    61
+                ],
+                "template": "CloseMap.png",
+                "threshold": 0.5
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "timeout": 500
+    },
+    "章节结束": {
+        "post_delay": 500,
+        "desc": "章节结束",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    470,
+                    204,
+                    429,
+                    307
+                ],
+                "template": "ChapterEnd.png",
+                "threshold": 0.7,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    668,
+                    467,
+                    38,
+                    18
+                ]
+            }
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "searchboss1.png",
+                "threshold": 0.5,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "searchboss2.png",
+                "threshold": 0.5,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战3": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "searchboss3.png",
+                "threshold": 0.5,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray1.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray2.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补6": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray6.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补3": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray3.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补4": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray4.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "寻找当前应对战脚下找补5": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    1376,
+                    720
+                ],
+                "template": "OCRFootArray5.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "黄色主线": {
+        "pre_delay": 5000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1174,
+                    216,
+                    173,
+                    47
+                ],
+                "template": "YellowMain.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "接取任务"
+        ],
+        "on_error": [
+            "任务判断击败"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "接取任务": {
+        "timeout": 5000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1169,
+                    185,
+                    206,
+                    120
+                ],
+                "template": [
+                    "quzhao.png"
+                ],
+                "threshold": 0.5,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    35,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "任务对话"
+        ],
+        "on_error": [
+            "任务判断2"
+        ],
+        "rate_limit": 500
+    },
+    "任务对话": {
+        "timeout": 1000,
+        "pre_delay": 5000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    320,
+                    336,
+                    25,
+                    19
+                ],
+                "template": "FindCallIcon.png",
+                "threshold": 0.7
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "任务下一步"
+        ],
+        "on_error": [
+            "状态判定"
+        ],
+        "rate_limit": 500
+    },
+    "任务下一步": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    309,
+                    277,
+                    409,
+                    129
+                ],
+                "template": "FindNextCall.png",
+                "threshold": 0.7
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "结束任务"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "结束任务": {
+        "pre_delay": 2000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    309,
+                    277,
+                    409,
+                    129
+                ],
+                "template": "CallIcon.png",
+                "threshold": 0.7
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "任务对话"
+        ],
+        "on_error": [
+            "任务判断击败"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "任务判断可以完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1171,
+                    207,
+                    170,
+                    56
+                ],
+                "expected": ".*可以完成.*"
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "接取任务"
+        ],
+        "on_error": [
+            "任务判断可以完成2"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "任务判断可以完成2": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*可以.*"
+                        }
+                    },
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*完成.*"
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "接取任务"
+        ],
+        "on_error": [
+            "任务判断可以完成3"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "任务判断可以完成3": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*可以完.*"
+                        }
+                    },
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*成.*"
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "接取任务"
+        ],
+        "on_error": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "任务判断可以完成4": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*可.*"
+                        }
+                    },
+                    {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1171,
+                                207,
+                                170,
+                                80
+                            ],
+                            "expected": ".*以完成.*"
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "接取任务"
+        ],
+        "on_error": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
+    },
+    "任务判断击败": {
+        "rate_limit": 2000,
+        "post_delay": 3000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1170,
+                    205,
+                    206,
+                    110
+                ],
+                "template": [
+                    "jibai.png"
+                ],
+                "threshold": 0.5,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    37,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "进入副本"
+        ],
+        "on_error": [
+            "状态判定"
+        ],
+        "timeout": 500
+    },
+    "任务判断2": {
+        "timeout": 2000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1165,
+                    198,
+                    196,
+                    87
+                ],
+                "template": "BossCheck.png",
+                "threshold": 0.7
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "进入副本"
+        ],
+        "on_error": [
+            "任务对话"
+        ],
+        "rate_limit": 500
+    },
+}
