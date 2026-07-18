@@ -1,0 +1,205 @@
+{
+  "main": {
+    "id": "8f6e7bf03b866be0",
+    "type": "split",
+    "children": [
+      {
+        "id": "ed2b69840a56482a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "158ad2a79a08342e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/task-state-flow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "task-state-flow"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "be2e724eb018af9b",
+    "type": "split",
+    "children": [
+      {
+        "id": "89db3af9738ddc0f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dcc7651631181026",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "7ed0f22fcabcfa3a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "9fcb27b1a02385b9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c6084cdc0d669fdd",
+    "type": "split",
+    "children": [
+      {
+        "id": "864d14bee461df12",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad58b1f3336bf010",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/task-state-flow.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "task-state-flow 的反向链接列表"
+            }
+          },
+          {
+            "id": "7252bd6535b1c709",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/task-state-flow.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "task-state-flow 的出链列表"
+            }
+          },
+          {
+            "id": "4599fed18097c326",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "2db941be668a97e8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b7cd2510fe208aad",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/task-state-flow.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "task-state-flow 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
+    }
+  },
+  "active": "158ad2a79a08342e",
+  "lastOpenFiles": [
+    "_tmp_63100_cf9ba8664390583228d31c26f4ed443c",
+    "_tmp_31696_d1a1cca0ce10eef20d5a997744e1db47",
+    "_tmp_40256_4ecbcd35c2d7bfd56c7b0e3e88ed042a",
+    "_tmp_68084_86093cb79979d1c03ae2ea94f223493f",
+    "_tmp_2484_87ebef9613393e324e57b8b83829a844",
+    "_tmp_2684_c059ed641eef0b2d1b1548dca72baaca",
+    "_tmp_61472_89d3c41c8e3156a2f884fc4437c3742d",
+    "_tmp_62260_a0a566765cf9a4d648905b19f971609f",
+    "_tmp_65312_7f43f48fb8e19adc1adfb50bee0778db",
+    "_tmp_40536_09bd7a7d2519db8c2c916563c14e66e1",
+    "_tmp_27608_66663c3e3795a23da79a529d27748954",
+    "docs/task-state-flow.svg",
+    "docs/task-state-flow.md",
+    "tmp/tmp.md",
+    "未命名.canvas"
+  ]
+}
