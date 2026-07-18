@@ -9,6 +9,10 @@ pnpm install
 pnpm check
 ```
 
+## 文档
+
+- [任务状态调度流程](./docs/task-state-flow.md)
+
 ## 发布
 
 推送 `v0.1.0` 这样的 tag 会触发生成的 release workflow。
