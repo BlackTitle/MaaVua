@@ -143,13 +143,7 @@
             "templateHash": "9675457bbfe1f6fdf9f082452cd6f348b7f62a58c8f3d7c42053e8e3673956b9"
         }
     },
-    "pending": [
-        {
-            "command": "create-maa-project --update node-deps",
-            "kind": "node-deps",
-            "reason": "pnpm install failed during project creation: Command failed: pnpm install (exit code 1)"
-        }
-    ],
+    "pending": [],
     "schemaVersion": 2,
     "template": {
         "createdBy": "create-maa-project",
