@@ -1,0 +1,242 @@
+{
+    "庞克巨龙_图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Dragon.png"
+                ],
+                "roi": [
+                    1275,
+                    523,
+                    101,
+                    105
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "庞克巨龙_查询状态"
+        ]
+    },
+    "奥兹_图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Dragon.png"
+                ],
+                "roi": [
+                    1275,
+                    523,
+                    101,
+                    105
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "奥兹_查询状态"
+        ]
+    },
+    "北海巨妖_图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "jvyao.png"
+                ],
+                "roi": [
+                    1275,
+                    523,
+                    101,
+                    105
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "北海巨妖_查询状态"
+        ]
+    },
+    "奥兹_查询状态": {
+        "post_delay": 5000,
+        "timeout": 5000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "奥兹_图标",
+                "roi_offset": [
+                    0,
+                    25,
+                    0,
+                    10
+                ],
+                "expected": [
+                    "立即参与"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    0,
+                    -25,
+                    0,
+                    -10
+                ]
+            }
+        },
+        "next": [
+            "世界BOSS_检测自动战斗"
+        ],
+        "focus": {
+            "Node.Action.Starting": "正在识别到BOSS~~"
+        }
+    },
+    "庞克巨龙_查询状态": {
+        "post_delay": 5000,
+        "timeout": 5000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "庞克巨龙_图标",
+                "roi_offset": [
+                    0,
+                    25,
+                    0,
+                    10
+                ],
+                "expected": [
+                    "立即参与"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    0,
+                    -25,
+                    0,
+                    -10
+                ]
+            }
+        },
+        "next": [
+            "世界BOSS_检测自动战斗"
+        ],
+        "focus": {
+            "Node.Action.Starting": "正在识别到BOSS~~"
+        }
+    },
+    "北海巨妖_查询状态": {
+        "post_delay": 5000,
+        "timeout": 5000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "北海巨妖_图标",
+                "roi_offset": [
+                    0,
+                    25,
+                    0,
+                    10
+                ],
+                "expected": [
+                    "立即参与"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    0,
+                    -25,
+                    0,
+                    -10
+                ]
+            }
+        },
+        "next": [
+            "世界BOSS_检测自动战斗"
+        ],
+        "focus": {
+            "Node.Action.Starting": "正在识别到BOSS~~"
+        }
+    },
+    "世界BOSS_检测自动战斗": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "AutoAtacck.png"
+                ],
+                "threshold": 1
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "世界BOSS_战斗冷却"
+        ],
+        "on_error": [
+            "世界BOSS_未自动战斗"
+        ]
+    },
+    "世界BOSS_未自动战斗": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "AutoAttackNot.png"
+                ],
+                "threshold": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "世界BOSS_战斗冷却"
+        ]
+    },
+    "世界BOSS_战斗冷却": {
+        "focus": {
+            "Node.Action.Starting": "进入CD等待~"
+        },
+        "timeout": 1800000,
+        "next": [
+            "世界BOSS_战斗结束"
+        ]
+    },
+    "世界BOSS_战斗结束": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    375,
+                    186,
+                    791,
+                    413
+                ],
+                "template": [
+                    "queding.png"
+                ],
+                "threshold": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

@@ -12,6 +12,8 @@ pnpm check
 ## 文档
 
 - [任务状态调度流程](./docs/task-state-flow.md)
+- [MaaPipelineEditor LocalBridge 部署与使用笔记](./docs/mpe-localbridge-deployment.md)
+- [Pipeline 配置错误经验](./docs/pipeline-configuration-lessons.md)
 
 ## 发布
 

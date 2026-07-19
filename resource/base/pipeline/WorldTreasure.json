@@ -1,0 +1,262 @@
+{
+    "世界寻宝": {
+        "next": [
+            "世界寻宝_大厅图标",
+            "世界寻宝_返回状态"
+        ]
+    },
+    "世界寻宝_大厅图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1028,
+                    527,
+                    344,
+                    92
+                ],
+                "template": [
+                    "WorldTreasure.png"
+                ],
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "世界寻宝_查询状态"
+        ]
+    },
+    "世界寻宝_查询状态": {
+        "post_delay": 5000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "世界寻宝_大厅图标",
+                "roi_offset": [
+                    0,
+                    25,
+                    0,
+                    10
+                ],
+                "expected": [
+                    "立即参与"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    0,
+                    -25,
+                    0,
+                    -10
+                ]
+            }
+        },
+        "next": [
+            "世界寻宝_寻宝亮"
+        ],
+        "on_error": [
+            "世界寻宝_大厅图标"
+        ]
+    },
+    "世界寻宝_寻宝亮": {
+        "timeout": 2000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1190,
+                    14,
+                    127,
+                    92
+                ],
+                "template": [
+                    "TreasureShiny.png"
+                ],
+                "threshold": 0.8,
+                "method": 10001,
+                "green_mask": true
+            }
+        },
+        "action": "Click",
+        "next": [
+            "世界寻宝_刷新船"
+        ],
+        "on_error": [
+            "世界寻宝_寻宝灰"
+        ]
+    },
+    "世界寻宝_寻宝灰": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1190,
+                    14,
+                    127,
+                    92
+                ],
+                "template": [
+                    "WorldTeasureGray.png"
+                ],
+                "threshold": 0.8,
+                "method": 10001,
+                "green_mask": true
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "世界寻宝_寻宝次数"
+        ]
+    },
+    "世界寻宝_刷新船": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    939,
+                    169,
+                    119,
+                    91
+                ],
+                "template": [
+                    "TreasureRefrsh.png"
+                ],
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": "Click",
+        "repeat": 3,
+        "repeat_delay": 1000,
+        "next": [
+            "世界寻宝_开始寻宝"
+        ]
+    },
+    "世界寻宝_开始寻宝": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    645,
+                    611,
+                    82,
+                    28
+                ],
+                "template": [
+                    "TreasureButton.png"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "世界寻宝_寻宝灰"
+        ]
+    },
+    "世界寻宝_寻宝次数": {
+        "timeout": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    93,
+                    70,
+                    49,
+                    20
+                ],
+                "expected": ".*0/10.*"
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "世界寻宝_返回"
+        ],
+        "on_error": [
+            "世界寻宝_冷却"
+        ]
+    },
+    "世界寻宝_成功次数": {
+        "timeout": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    151,
+                    42,
+                    57,
+                    22
+                ],
+                "expected": [
+                    ".*0/5.*"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "世界寻宝_返回"
+        ],
+        "on_error": [
+            "世界寻宝_寻宝次数"
+        ]
+    },
+    "世界寻宝_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1285,
+                    19,
+                    74,
+                    74
+                ],
+                "template": [
+                    "WorldTeasureReturn.png"
+                ],
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        }
+    },
+    "世界寻宝_返回状态": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1285,
+                    19,
+                    74,
+                    74
+                ],
+                "template": [
+                    "WorldTeasureReturn.png"
+                ],
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "世界寻宝_寻宝亮"
+        ]
+    },
+    "世界寻宝_冷却": {
+        "pre_delay": 600000,
+        "next": [
+            "世界寻宝_寻宝亮"
+        ]
+    }
+}

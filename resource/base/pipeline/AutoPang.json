@@ -1,0 +1,54 @@
+{
+    "自动刷图": {
+        "next": [
+            "刷图_副本攻击",
+            "刷图_对战结束确认",
+        ]
+    },
+    "刷图_副本攻击": {
+        "rate_limit": 500,
+        "pre_delay": 4000,
+        "post_delay": 500,
+        "desc": "攻击怪物",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    872,
+                    504,
+                    99,
+                    65
+                ],
+                "expected": "攻击"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "刷图_对战结束确认"
+        ],
+        "timeout": 500
+    },
+    "刷图_对战结束确认": {
+        "timeout": 5000,
+        "rate_limit": 500,
+        "pre_delay": 500,
+        "desc": "确认对战结束",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    716,
+                    518,
+                    78,
+                    37
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

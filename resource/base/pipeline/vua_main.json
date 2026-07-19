@@ -1,25 +1,52 @@
 {
+    "first": {
+        "next": [
+            "收起活动栏",
+            "收起状态栏"
+        ]
+    },
     "状态判定": {
         "timeout": -1,
         "next": [
-            "收起状态栏",
+            "跳过提示",
+            "任务判断2",
             "跳过对话文本",
+            "进入副本",
             "副本攻击",
             "对战结束确认",
             "关闭对战窗口",
-            "进入副本",
             "章节结束",
             "任务判断可以完成",
             "任务判断可以完成2",
             "任务判断可以完成3",
             "任务判断可以完成4",
+            "任务对话",
             "结束任务",
             "任务下一步",
-            "任务判断击败",
+            "黄色主线",
             "寻找对战循环"
         ],
-        "on_error": [
-            "黄色主线"
+        "rate_limit": 500
+    },
+    "状态判定无黄色": {
+        "timeout": -1,
+        "next": [
+            "跳过提示",
+            "任务判断2",
+            "跳过对话文本",
+            "进入副本",
+            "副本攻击",
+            "对战结束确认",
+            "关闭对战窗口",
+            "章节结束",
+            "任务判断可以完成",
+            "任务判断可以完成2",
+            "任务判断可以完成3",
+            "任务判断可以完成4",
+            "任务对话",
+            "结束任务",
+            "任务下一步",
+            "寻找对战循环"
         ],
         "rate_limit": 500
     },
@@ -39,8 +66,34 @@
             "寻找当前应对战脚下找补6"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ]
+    },
+    "收起活动栏": {
+        "pre_delay": 500,
+        "desc": "正在收起状态栏",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    356,
+                    16,
+                    42,
+                    44
+                ],
+                "template": "shouqihuodong.png",
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "状态判定"
+        ],
+        "rate_limit": 500,
+        "timeout": 500
     },
     "收起状态栏": {
         "pre_delay": 500,
@@ -49,13 +102,13 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    -1,
-                    153,
-                    24,
-                    23
+                    0,
+                    144,
+                    108,
+                    77
                 ],
                 "template": "StatusBarCollapse.png",
-                "threshold": 0.7,
+                "threshold": 0.8,
                 "green_mask": true
             }
         },
@@ -86,7 +139,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -112,7 +165,9 @@
         },
         "timeout": 3000,
         "next": [
-            "状态判定"
+            "任务对话",
+            "黄色主线",
+            "状态判定无黄色"
         ]
     },
     "副本攻击": {
@@ -138,7 +193,7 @@
             "对战结束确认"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "timeout": 500
     },
@@ -166,7 +221,7 @@
             "关闭对战窗口"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ]
     },
     "关闭对战窗口": {
@@ -190,7 +245,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "timeout": 500
     },
@@ -247,7 +302,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -271,7 +326,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -295,7 +350,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -319,7 +374,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -343,7 +398,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -367,7 +422,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -391,7 +446,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -415,7 +470,7 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
@@ -439,13 +494,13 @@
             "type": "Click"
         },
         "next": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
     },
     "黄色主线": {
-        "pre_delay": 5000,
+        "pre_delay": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -468,13 +523,13 @@
             "接取任务"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500,
         "timeout": 500
     },
     "接取任务": {
-        "timeout": 5000,
+        "timeout": 7000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -487,7 +542,7 @@
                 "template": [
                     "quzhao.png"
                 ],
-                "threshold": 0.5,
+                "threshold": 0.3,
                 "green_mask": true
             }
         },
@@ -507,34 +562,43 @@
             "任务对话"
         ],
         "on_error": [
-            "任务判断2"
+            "状态判定无黄色"
         ],
         "rate_limit": 500
     },
     "任务对话": {
         "timeout": 1000,
-        "pre_delay": 5000,
+        "pre_delay": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    320,
-                    336,
-                    25,
-                    19
+                    279,
+                    160,
+                    459,
+                    258
                 ],
                 "template": "FindCallIcon.png",
-                "threshold": 0.7
+                "threshold": 0.9
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    2,
+                    2,
+                    0,
+                    0
+                ]
+            }
         },
         "next": [
             "任务下一步"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "rate_limit": 500
     },
@@ -562,7 +626,7 @@
         "timeout": 500
     },
     "结束任务": {
-        "pre_delay": 2000,
+        "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -573,7 +637,7 @@
                     129
                 ],
                 "template": "CallIcon.png",
-                "threshold": 0.7
+                "threshold": 0.9
             }
         },
         "action": {
@@ -586,11 +650,11 @@
             "任务判断击败"
         ],
         "rate_limit": 500,
-        "timeout": 500
+        "timeout": 1000
     },
     "任务判断可以完成": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
                     1171,
@@ -598,7 +662,11 @@
                     170,
                     56
                 ],
-                "expected": ".*可以完成.*"
+                "template": [
+                    "keyiwancheng.png"
+                ],
+                "threshold": 0.7,
+                "green_mask": true
             }
         },
         "action": {
@@ -619,27 +687,35 @@
             "param": {
                 "all_of": [
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*可以.*"
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["keyi.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                         }
                     },
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*完成.*"
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["wancheng.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                         }
                     }
                 ]
@@ -663,27 +739,35 @@
             "param": {
                 "all_of": [
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*可以完.*"
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["ke.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                         }
                     },
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*成.*"
+                        "recognition": {
+                             "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["yiwancheng.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                         }
                     }
                 ]
@@ -707,27 +791,34 @@
             "param": {
                 "all_of": [
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*可.*"
-                        }
+                        "recognition": {
+                             "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["keyiwan.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                     },
                     {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1171,
-                                207,
-                                170,
-                                80
-                            ],
-                            "expected": ".*以完成.*"
+                        "recognition": {
+                             "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    1171,
+                                    207,
+                                    170,
+                                    80
+                                ],
+                                "template": ["cheng.png"],
+                                "threshold": 0.7,
+                                "green_mask": true
+                            }
                         }
                     }
                 ]
@@ -769,7 +860,7 @@
             "param": {
                 "target": true,
                 "target_offset": [
-                    37,
+                    25,
                     0,
                     0,
                     0
@@ -780,12 +871,12 @@
             "进入副本"
         ],
         "on_error": [
-            "状态判定"
+            "状态判定无黄色"
         ],
         "timeout": 500
     },
     "任务判断2": {
-        "timeout": 2000,
+        "timeout": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -804,8 +895,31 @@
             "进入副本"
         ],
         "on_error": [
-            "任务对话"
+            "状态判定"
         ],
         "rate_limit": 500
+    },
+    "跳过提示": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    288,
+                    36,
+                    758,
+                    606
+                ],
+                "template": [
+                    "TipsConfirm.png"
+                ],
+                "threshold": 0.8,
+                "green_mask": true
+            }
+        },
+        "action": "Click",
+        "next": [
+            "状态判定"
+        ],
+        "timeout": 500
     }
 }
