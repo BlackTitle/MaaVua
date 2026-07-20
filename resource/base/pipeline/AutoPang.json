@@ -4,6 +4,10 @@
             "刷图_副本攻击",
             "刷图_对战结束确认"
         ]
+    ,
+        "focus": {
+            "Node.Action.Starting": "自动刷图调度"
+        }
     },
     "刷图_副本攻击": {
         "rate_limit": 500,
@@ -29,6 +33,10 @@
             "刷图_对战结束确认"
         ],
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "攻击副本怪物"
+        }
     },
     "刷图_对战结束确认": {
         "timeout": 5000,
@@ -49,6 +57,10 @@
         },
         "action": {
             "type": "Click"
+        }
+    ,
+        "focus": {
+            "Node.Action.Starting": "对战结束确认"
         }
     }
 }

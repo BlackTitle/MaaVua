@@ -13,13 +13,17 @@
                     101,
                     105
                 ],
-                "threshold": 0.8
+                "threshold": 0.8,
+                "green_mask": true
             }
         },
         "action": "DoNothing",
         "next": [
             "庞克巨龙_查询状态"
-        ]
+        ],
+        "focus": {
+            "Node.Action.Starting": "识别庞克巨龙图标"
+        }
     },
     "奥兹_图标": {
         "timeout": 2000,
@@ -27,7 +31,7 @@
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "Dragon.png"
+                    "aozi.png"
                 ],
                 "roi": [
                     1275,
@@ -35,13 +39,17 @@
                     101,
                     105
                 ],
-                "threshold": 0.8
+                "threshold": 0.8,
+                "green_mask": true
             }
         },
         "action": "DoNothing",
         "next": [
             "奥兹_查询状态"
-        ]
+        ],
+        "focus": {
+            "Node.Action.Starting": "识别奥兹图标"
+        }
     },
     "北海巨妖_图标": {
         "timeout": 2000,
@@ -57,13 +65,17 @@
                     101,
                     105
                 ],
-                "threshold": 0.8
+                "threshold": 0.8,
+                "green_mask": true
             }
         },
         "action": "DoNothing",
         "next": [
             "北海巨妖_查询状态"
-        ]
+        ],
+        "focus": {
+            "Node.Action.Starting": "识别北海巨妖图标"
+        }
     },
     "奥兹_查询状态": {
         "post_delay": 5000,
@@ -104,7 +116,6 @@
         }
     },
     "庞克巨龙_查询状态": {
-        
         "post_delay": 5000,
         "timeout": 5000,
         "recognition": {
@@ -187,7 +198,7 @@
                 "template": [
                     "AutoAtacck.png"
                 ],
-                "threshold": 1
+                "threshold": 0.99
             }
         },
         "action": {
@@ -198,7 +209,10 @@
         ],
         "on_error": [
             "世界BOSS_未自动战斗"
-        ]
+        ],
+        "focus": {
+            "Node.Action.Starting": "检测是否已开启自动战斗"
+        }
     },
     "世界BOSS_未自动战斗": {
         "recognition": {
@@ -207,18 +221,26 @@
                 "template": [
                     "AutoAttackNot.png"
                 ],
-                "threshold": 1
+                "threshold": 0.99
             }
         },
         "action": {
             "type": "Click",
-            "param":{
-                "target": [741,72,3,6]
+            "param": {
+                "target": [
+                    741,
+                    72,
+                    3,
+                    6
+                ]
             }
         },
         "next": [
             "世界BOSS_战斗冷却"
-        ]
+        ],
+        "focus": {
+            "Node.Action.Starting": "点击开启自动战斗"
+        }
     },
     "世界BOSS_战斗冷却": {
         "focus": {
@@ -245,11 +267,14 @@
                 "template": [
                     "queding.png"
                 ],
-                "threshold": 1
+                "threshold": 0.99
             }
         },
         "action": {
             "type": "Click"
+        },
+        "focus": {
+            "Node.Action.Starting": "确认战斗结束"
         }
     }
 }

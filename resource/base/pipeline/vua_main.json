@@ -21,6 +21,10 @@
             "寻找对战循环"
         ],
         "rate_limit": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "综合状态判定"
+        }
     },
     "状态判定无黄色": {
         "timeout": -1,
@@ -43,6 +47,10 @@
             "寻找对战循环"
         ],
         "rate_limit": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "无黄色状态判定"
+        }
     },
     "寻找对战循环": {
         "desc": "正在寻找应对战怪物",
@@ -62,6 +70,10 @@
         "on_error": [
             "状态判定无黄色"
         ]
+    ,
+        "focus": {
+            "Node.Action.Starting": "寻找对战目标"
+        }
     },
     "收起活动栏": {
         "pre_delay": 500,
@@ -88,6 +100,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "收起活动栏"
+        }
     },
     "收起状态栏": {
         "pre_delay": 500,
@@ -114,6 +130,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "收起状态栏"
+        }
     },
     "进入副本": {
         "desc": "正在进入副本",
@@ -137,6 +157,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "进入副本"
+        }
     },
     "跳过对话文本": {
         "post_delay": 500,
@@ -163,6 +187,10 @@
             "黄色主线",
             "状态判定无黄色"
         ]
+    ,
+        "focus": {
+            "Node.Action.Starting": "跳过对话文本"
+        }
     },
     "副本攻击": {
         "rate_limit": 500,
@@ -190,6 +218,10 @@
             "状态判定无黄色"
         ],
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "攻击怪物"
+        }
     },
     "对战结束确认": {
         "timeout": 500,
@@ -217,6 +249,10 @@
         "on_error": [
             "状态判定无黄色"
         ]
+    ,
+        "focus": {
+            "Node.Action.Starting": "对战结束确认"
+        }
     },
     "关闭对战窗口": {
         "post_delay": 500,
@@ -242,6 +278,10 @@
             "状态判定无黄色"
         ],
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "关闭对战窗口"
+        }
     },
     "章节结束": {
         "post_delay": 500,
@@ -276,6 +316,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "章节结束"
+        }
     },
     "寻找当前应对战1": {
         "recognition": {
@@ -300,6 +344,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "寻找应战目标1"
+        }
     },
     "寻找当前应对战2": {
         "recognition": {
@@ -324,6 +372,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "寻找应战目标2"
+        }
     },
     "寻找当前应对战3": {
         "recognition": {
@@ -348,6 +400,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "寻找应战目标3"
+        }
     },
     "寻找当前应对战脚下找补1": {
         "recognition": {
@@ -372,6 +428,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战1"
+        }
     },
     "寻找当前应对战脚下找补2": {
         "recognition": {
@@ -396,6 +456,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战2"
+        }
     },
     "寻找当前应对战脚下找补6": {
         "recognition": {
@@ -420,6 +484,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战6"
+        }
     },
     "寻找当前应对战脚下找补3": {
         "recognition": {
@@ -444,6 +512,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战3"
+        }
     },
     "寻找当前应对战脚下找补4": {
         "recognition": {
@@ -468,6 +540,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战4"
+        }
     },
     "寻找当前应对战脚下找补5": {
         "recognition": {
@@ -492,6 +568,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "脚下找补应战5"
+        }
     },
     "黄色主线": {
         "pre_delay": 2000,
@@ -521,6 +601,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "检测黄色主线"
+        }
     },
     "接取任务": {
         "timeout": 7000,
@@ -559,6 +643,10 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "接取任务"
+        }
     },
     "任务对话": {
         "timeout": 1000,
@@ -595,6 +683,10 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "任务对话"
+        }
     },
     "任务下一步": {
         "recognition": {
@@ -618,6 +710,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "任务下一步"
+        }
     },
     "结束任务": {
         "pre_delay": 1000,
@@ -645,6 +741,10 @@
         ],
         "rate_limit": 500,
         "timeout": 1000
+    ,
+        "focus": {
+            "Node.Action.Starting": "结束任务"
+        }
     },
     "任务判断可以完成": {
         "recognition": {
@@ -674,6 +774,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "判断任务可完成"
+        }
     },
     "任务判断可以完成2": {
         "recognition": {
@@ -726,6 +830,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "判断任务可完成2"
+        }
     },
     "任务判断可以完成3": {
         "recognition": {
@@ -778,6 +886,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "判断任务可完成3"
+        }
     },
     "任务判断可以完成4": {
         "recognition": {
@@ -830,6 +942,10 @@
         ],
         "rate_limit": 500,
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "判断任务可完成4"
+        }
     },
     "任务判断击败": {
         "rate_limit": 2000,
@@ -869,6 +985,10 @@
             "状态判定无黄色"
         ],
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "判断击败任务"
+        }
     },
     "任务判断2": {
         "timeout": 1000,
@@ -893,6 +1013,10 @@
             "状态判定"
         ],
         "rate_limit": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "Boss任务检查"
+        }
     },
     "跳过提示": {
         "recognition": {
@@ -916,5 +1040,9 @@
             "状态判定"
         ],
         "timeout": 500
+    ,
+        "focus": {
+            "Node.Action.Starting": "跳过提示弹窗"
+        }
     }
 }
