@@ -8,6 +8,8 @@
         {
             "name": "自动刷图 - 选择次数",
             "entry": "自动刷图",
+            "repeatable": true,
+            "repeat_count": 1,
             "description": "点开需要刷的，写好次数自动执行"
         },
         {
@@ -29,6 +31,36 @@
             "name": "世界BOSS-奥兹",
             "entry": "奥兹_图标",
             "description": "这个作者很懒，没有介绍"
+        },
+        {
+            "name": "扫矿",
+            "entry": "扫矿_调度下",
+            "description": "自动扫矿踢狗",
+            "option": ["扫描ID"]
         }
-    ]
+    ],
+    "option": {
+        "扫描ID": {
+            "type": "input",
+            "label": "扫描ID",
+            "description": "设置要扫描的玩家ID",
+            "inputs": [
+                {
+                    "name": "ID",
+                    "label": "玩家ID",
+                    "description": "要扫描的玩家ID",
+                    "default": "sherry.s838"
+                }
+            ],
+            "pipeline_override": {
+                "扫矿_扫描ID": {
+                    "recognition": {
+                        "param": {
+                            "expected": ".*{ID}.*"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,10 +1,4 @@
 {
-    "first": {
-        "next": [
-            "收起活动栏",
-            "收起状态栏"
-        ]
-    },
     "状态判定": {
         "timeout": -1,
         "next": [
@@ -804,6 +798,7 @@
                                 "threshold": 0.7,
                                 "green_mask": true
                             }
+                        }
                     },
                     {
                         "recognition": {

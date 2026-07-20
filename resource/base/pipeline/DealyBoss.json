@@ -1,5 +1,6 @@
 {
     "庞克巨龙_图标": {
+        "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -21,6 +22,7 @@
         ]
     },
     "奥兹_图标": {
+        "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -42,6 +44,7 @@
         ]
     },
     "北海巨妖_图标": {
+        "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -93,13 +96,15 @@
             }
         },
         "next": [
-            "世界BOSS_检测自动战斗"
+            "世界BOSS_检测自动战斗",
+            "世界BOSS_未自动战斗"
         ],
         "focus": {
             "Node.Action.Starting": "正在识别到BOSS~~"
         }
     },
     "庞克巨龙_查询状态": {
+        
         "post_delay": 5000,
         "timeout": 5000,
         "recognition": {
@@ -130,7 +135,8 @@
             }
         },
         "next": [
-            "世界BOSS_检测自动战斗"
+            "世界BOSS_检测自动战斗",
+            "世界BOSS_未自动战斗"
         ],
         "focus": {
             "Node.Action.Starting": "正在识别到BOSS~~"
@@ -167,7 +173,8 @@
             }
         },
         "next": [
-            "世界BOSS_检测自动战斗"
+            "世界BOSS_检测自动战斗",
+            "世界BOSS_未自动战斗"
         ],
         "focus": {
             "Node.Action.Starting": "正在识别到BOSS~~"
@@ -204,7 +211,10 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param":{
+                "target": [741,72,3,6]
+            }
         },
         "next": [
             "世界BOSS_战斗冷却"
@@ -214,7 +224,10 @@
         "focus": {
             "Node.Action.Starting": "进入CD等待~"
         },
-        "timeout": 1800000,
+        "pre_delay": 1800000,
+        "recognition": {
+            "type": "DirectHit"
+        },
         "next": [
             "世界BOSS_战斗结束"
         ]

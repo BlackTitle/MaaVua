@@ -29,6 +29,7 @@
     },
     "世界寻宝_查询状态": {
         "post_delay": 5000,
+        "timeout": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -57,13 +58,14 @@
             }
         },
         "next": [
-            "世界寻宝_寻宝亮"
+            "世界寻宝_寻宝亮2",
+            "世界寻宝_寻宝灰"
         ],
         "on_error": [
             "世界寻宝_大厅图标"
         ]
     },
-    "世界寻宝_寻宝亮": {
+    "世界寻宝_寻宝亮1": {
         "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
@@ -77,7 +79,7 @@
                 "template": [
                     "TreasureShiny.png"
                 ],
-                "threshold": 0.8,
+                "threshold": 0.88,
                 "method": 10001,
                 "green_mask": true
             }
@@ -89,6 +91,81 @@
         "on_error": [
             "世界寻宝_寻宝灰"
         ]
+    },
+    "世界寻宝_寻宝亮2": {
+        "timeout": 2000,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1190,
+                    14,
+                    127,
+                    92
+                ],
+                "template": [
+                    "TreasureShiny.png"
+                ],
+                "threshold": 0.88,
+                "method": 10001,
+                "green_mask": true
+            }
+        },
+        "action": "Click",
+        "next": [
+            "世界寻宝_快速布阵"
+        ],
+        "on_error": [
+            "世界寻宝_寻宝亮1"
+        ]
+    },
+    "世界寻宝_快速布阵":{
+        "rate_limit": 2000,
+        "recognition":{
+            "type": "TemplateMatch",
+            "param":{
+                "roi": [623,518,97,43],
+                "template": ["QuickSetup.png"],
+                "threshold": 0.95,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": ["世界寻宝_刷新船"]
+    },
+    "世界寻宝_确认":{
+        "timeout": 1000,
+        "recognition":{
+            "type": "TemplateMatch",
+            "param":{
+                "roi": [792,493,139,56],
+                "template": ["TreasureConfirm.png"],
+                "threshold": 0.95,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": ["世界寻宝_确认2"], 
+        "on_error": ["世界寻宝_快速布阵"]
+    },
+    "世界寻宝_确认2":{
+        "recognition":{
+            "type": "TemplateMatch",
+            "param":{
+                "roi": [540,288,295,136],
+                "template": ["TreasureConfirm2.png"],
+                "threshold": 0.95,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": ["世界寻宝_刷新船"]
     },
     "世界寻宝_寻宝灰": {
         "recognition": {
@@ -103,17 +180,25 @@
                 "template": [
                     "WorldTeasureGray.png"
                 ],
-                "threshold": 0.8,
+                "threshold": 0.95,
                 "method": 10001,
                 "green_mask": true
             }
         },
         "action": "DoNothing",
+        "timeout": 3000,
         "next": [
+            "世界寻宝_成功次数",
             "世界寻宝_寻宝次数"
+        ],
+        "on_error": [
+            "世界寻宝_冷却"
         ]
     },
     "世界寻宝_刷新船": {
+        "rate_limit": 2000,
+        "pre_delay": 500,
+        "post_delay": 500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -130,12 +215,19 @@
                 "green_mask": true
             }
         },
-        "action": "Click",
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [3, 3, 0, 0]
+            }
+        },
         "repeat": 3,
-        "repeat_delay": 1000,
+        "repeat_delay": 1500,
         "next": [
             "世界寻宝_开始寻宝"
-        ]
+        ],
+        "on_error": ["世界寻宝_寻宝亮2"]
     },
     "世界寻宝_开始寻宝": {
         "recognition": {
@@ -161,7 +253,8 @@
         ]
     },
     "世界寻宝_寻宝次数": {
-        "timeout": 2000,
+        "rate_limit": 2000,
+        "timeout": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -177,13 +270,10 @@
         "action": "DoNothing",
         "next": [
             "世界寻宝_返回"
-        ],
-        "on_error": [
-            "世界寻宝_冷却"
         ]
     },
     "世界寻宝_成功次数": {
-        "timeout": 2000,
+        "rate_limit": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -203,9 +293,6 @@
         },
         "next": [
             "世界寻宝_返回"
-        ],
-        "on_error": [
-            "世界寻宝_寻宝次数"
         ]
     },
     "世界寻宝_返回": {
@@ -226,10 +313,12 @@
             }
         },
         "action": {
-            "type": "StopTask"
+            "type": "Click"
         }
     },
     "世界寻宝_返回状态": {
+        "rate_limit": 2000,
+        "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -250,13 +339,16 @@
             "type": "DoNothing"
         },
         "next": [
-            "世界寻宝_寻宝亮"
+            "世界寻宝_寻宝亮2",
+            "世界寻宝_寻宝灰"
         ]
     },
     "世界寻宝_冷却": {
-        "pre_delay": 600000,
+        "pre_delay": 300000,
         "next": [
-            "世界寻宝_寻宝亮"
-        ]
+            "世界寻宝_寻宝亮1"
+        ],
+        "timeout": 3000,
+        "on_error": ["世界寻宝_寻宝灰"]
     }
 }
