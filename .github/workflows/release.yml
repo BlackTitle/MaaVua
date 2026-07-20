@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+
+      - name: Download MFAAvalonia
+        shell: pwsh
+        run: |
+          $api = Invoke-RestMethod "https://api.github.com/repos/MaaXYZ/MFAAvalonia/releases/latest"
+          $asset = $api.assets | Where-Object { $_.name -like "*win-x64.zip" } | Select-Object -First 1
+          Write-Host "Downloading $($asset.name)"
+          Invoke-WebRequest $asset.browser_download_url -OutFile "$env:RUNNER_TEMP\mfaa.zip"
+
+      - name: Prepare package
+        shell: pwsh
+        run: |
+          $dist = "dist\MaaVua"
+          New-Item -ItemType Directory -Path $dist -Force | Out-Null
+          Expand-Archive "$env:RUNNER_TEMP\mfaa.zip" -DestinationPath $dist -Force
+
+          # Clean MaaAgentBinary duplicate to prevent NetBeauty startup error
+          $agentRoot = Join-Path $dist "MaaAgentBinary"
+          if (Test-Path $agentRoot) { Remove-Item $agentRoot -Recurse -Force }
+
+          # Copy project resources
+          robocopy resource "$dist\resource" /MIR /NFL /NDL /NJH /NJS
+          robocopy tasks "$dist\tasks" /MIR /NFL /NDL /NJH /NJS
+          Copy-Item interface.json $dist -Force
+
+          Write-Host "Package prepared at $dist"
+
+      - name: Archive
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF_NAME -replace '^v', ''
+          $archive = "dist\MaaVua-v$tag-win-x64.zip"
+          Compress-Archive -Path "dist\MaaVua\*" -DestinationPath $archive -Force
+          Write-Host "Archive created: $archive"
+
+      - name: Release
+        uses: softprops/action-gh-release@v3
+        with:
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: dist/*.zip
+          generate_release_notes: true

@@ -1,22 +1,41 @@
 {
-    "扫矿_调度下":{
+    "扫矿_调度下": {
         "timeout": 2000,
-        "next": ["扫矿_扫描ID"],
-        "on_error": ["扫矿_下一区域亮","扫矿_下一区域灰","扫矿_上一区域灰"]
+        "next": [
+            "扫矿_扫描ID"
+        ],
+        "on_error": [
+            "扫矿_下一区域亮",
+            "扫矿_下一区域灰",
+            "扫矿_上一区域灰"
+        ]
     },
-    "扫矿_调度上":{
+    "扫矿_调度上": {
         "timeout": 2000,
-        "next": ["扫矿_扫描ID"],
-        "on_error": ["扫矿_上一区域亮","扫矿_上一区域灰","扫矿_下一区域灰"]
+        "next": [
+            "扫矿_扫描ID"
+        ],
+        "on_error": [
+            "扫矿_上一区域亮",
+            "扫矿_上一区域灰",
+            "扫矿_下一区域灰"
+        ]
     },
-    "扫矿_下一区域亮":{
+    "扫矿_下一区域亮": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [641,597,93,34],
-                "template": ["NextAreaLight.png"],
+            "param": {
+                "roi": [
+                    641,
+                    597,
+                    93,
+                    34
+                ],
+                "template": [
+                    "NextAreaLight.png"
+                ],
                 "threshold": 0.8,
                 "method": 10001,
                 "green_mask": true
@@ -25,17 +44,28 @@
         "action": {
             "type": "Click"
         },
-        "next": ["扫矿_扫描ID"],
-        "on_error": ["扫矿_调度下"]
+        "next": [
+            "扫矿_扫描ID"
+        ],
+        "on_error": [
+            "扫矿_调度下"
+        ]
     },
-    "扫矿_下一区域灰":{
+    "扫矿_下一区域灰": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [641,597,93,34],
-                "template": ["NextAreaGray.png"],
+            "param": {
+                "roi": [
+                    641,
+                    597,
+                    93,
+                    34
+                ],
+                "template": [
+                    "NextAreaGray.png"
+                ],
                 "threshold": 0.8,
                 "method": 10001,
                 "green_mask": true
@@ -44,16 +74,25 @@
         "action": {
             "type": "DoNothing"
         },
-        "next": ["扫矿_上一区域亮"]
+        "next": [
+            "扫矿_上一区域亮"
+        ]
     },
-    "扫矿_上一区域亮":{
+    "扫矿_上一区域亮": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [543,597,92,33],
-                "template": ["LastAreaLight.png"],
+            "param": {
+                "roi": [
+                    543,
+                    597,
+                    92,
+                    33
+                ],
+                "template": [
+                    "LastAreaLight.png"
+                ],
                 "threshold": 0.8,
                 "method": 10001,
                 "green_mask": true
@@ -62,17 +101,28 @@
         "action": {
             "type": "Click"
         },
-        "next": ["扫矿_扫描ID"],
-        "on_error": ["扫矿_调度上"]
+        "next": [
+            "扫矿_扫描ID"
+        ],
+        "on_error": [
+            "扫矿_调度上"
+        ]
     },
-    "扫矿_上一区域灰":{
+    "扫矿_上一区域灰": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [543,597,92,33],
-                "template": ["LastAreaGray.png"],
+            "param": {
+                "roi": [
+                    543,
+                    597,
+                    92,
+                    33
+                ],
+                "template": [
+                    "LastAreaGray.png"
+                ],
                 "threshold": 0.8,
                 "method": 10001,
                 "green_mask": true
@@ -81,31 +131,49 @@
         "action": {
             "type": "DoNothing"
         },
-        "next": ["扫矿_下一区域亮"]
+        "next": [
+            "扫矿_下一区域亮"
+        ]
     },
-    "扫矿_扫描ID":{
+    "扫矿_扫描ID": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "OCR",
-            "param":{
-                "roi": [284,5,1081,602],
-                "expected": ["sherry.s838"]
+            "param": {
+                "roi": [
+                    284,
+                    5,
+                    1081,
+                    602
+                ],
+                "expected": [
+                    "sherry.s838"
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["扫矿_开始占领"]
+        "next": [
+            "扫矿_开始占领"
+        ]
     },
-    "扫矿_开始占领":{
+    "扫矿_开始占领": {
         "timeout": 10000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [572,551,72,41],
-                "template": ["KickArea.png"],
+            "param": {
+                "roi": [
+                    572,
+                    551,
+                    72,
+                    41
+                ],
+                "template": [
+                    "KickArea.png"
+                ],
                 "threshold": 0.95,
                 "method": 10001
             }
@@ -113,23 +181,34 @@
         "action": {
             "type": "Click"
         },
-        "next": ["扫矿_占领确认"]
+        "next": [
+            "扫矿_占领确认"
+        ]
     },
-
-    "扫矿_占领确认":{
+    "扫矿_占领确认": {
         "timeout": 2000,
         "pre_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [680,498,93,37],
-                "template": ["KickDogConfirm.png"],
+            "param": {
+                "roi": [
+                    680,
+                    498,
+                    93,
+                    37
+                ],
+                "template": [
+                    "KickDogConfirm.png"
+                ],
                 "threshold": 0.95
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["扫矿_调度下","扫矿_调度上"]
+        "next": [
+            "扫矿_调度下",
+            "扫矿_调度上"
+        ]
     }
 }

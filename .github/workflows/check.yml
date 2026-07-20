@@ -1,0 +1,30 @@
+name: Check
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "interface.json"
+      - "tasks/**"
+      - "resource/base/pipeline/**"
+      - "resource/base/image/**"
+      - "config/**"
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
