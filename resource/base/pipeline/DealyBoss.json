@@ -1,6 +1,6 @@
 {
     "庞克巨龙_图标": {
-        "timeout": 2000,
+        "timeout": 5000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -26,7 +26,7 @@
         }
     },
     "奥兹_图标": {
-        "timeout": 2000,
+        "timeout": 5000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -52,7 +52,7 @@
         }
     },
     "北海巨妖_图标": {
-        "timeout": 2000,
+        "timeout": 5000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -198,7 +198,7 @@
                 "template": [
                     "AutoAtacck.png"
                 ],
-                "threshold": 0.99
+                "threshold": 0.95
             }
         },
         "action": {
@@ -221,7 +221,7 @@
                 "template": [
                     "AutoAttackNot.png"
                 ],
-                "threshold": 0.99
+                "threshold": 0.95
             }
         },
         "action": {
@@ -246,7 +246,8 @@
         "focus": {
             "Node.Action.Starting": "进入CD等待~"
         },
-        "pre_delay": 1800000,
+        "rate_limit": 5000,
+        "timeout": 1800000,
         "recognition": {
             "type": "DirectHit"
         },
@@ -267,11 +268,19 @@
                 "template": [
                     "queding.png"
                 ],
-                "threshold": 0.99
+                "threshold": 0.9
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    667,
+                    475,
+                    36,
+                    17
+                ]
+            }
         },
         "focus": {
             "Node.Action.Starting": "确认战斗结束"

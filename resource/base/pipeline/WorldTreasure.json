@@ -3,8 +3,7 @@
         "next": [
             "世界寻宝_大厅图标",
             "世界寻宝_返回状态"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "世界寻宝调度"
         }
@@ -29,15 +28,13 @@
         "action": "DoNothing",
         "next": [
             "世界寻宝_查询状态"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "检测寻宝大厅"
         }
     },
     "世界寻宝_查询状态": {
-        "post_delay": 5000,
-        "timeout": 2000,
+        "timeout": 100000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -66,18 +63,17 @@
             }
         },
         "next": [
-            "世界寻宝_寻宝亮2",
+            "世界寻宝_寻宝亮",
             "世界寻宝_寻宝灰"
         ],
         "on_error": [
             "世界寻宝_大厅图标"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "查询寻宝状态"
         }
     },
-    "世界寻宝_寻宝亮1": {
+    "世界寻宝_寻宝亮": {
         "timeout": 2000,
         "recognition": {
             "type": "TemplateMatch",
@@ -98,54 +94,30 @@
         },
         "action": "Click",
         "next": [
+            "世界寻宝_快速布阵",
             "世界寻宝_刷新船"
         ],
         "on_error": [
             "世界寻宝_寻宝灰"
-        ]
-    ,
+        ],
         "focus": {
-            "Node.Action.Starting": "点击寻宝亮1"
+            "Node.Action.Starting": "点击寻宝亮"
         }
     },
-    "世界寻宝_寻宝亮2": {
-        "timeout": 2000,
+    "世界寻宝_快速布阵": {
+        "rate_limit": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    1190,
-                    14,
-                    127,
-                    92
+                    623,
+                    518,
+                    97,
+                    43
                 ],
                 "template": [
-                    "TreasureShiny.png"
+                    "QuickSetup.png"
                 ],
-                "threshold": 0.88,
-                "method": 10001,
-                "green_mask": true
-            }
-        },
-        "action": "Click",
-        "next": [
-            "世界寻宝_快速布阵"
-        ],
-        "on_error": [
-            "世界寻宝_寻宝亮1"
-        ]
-    ,
-        "focus": {
-            "Node.Action.Starting": "点击寻宝亮2"
-        }
-    },
-    "世界寻宝_快速布阵":{
-        "rate_limit": 2000,
-        "recognition":{
-            "type": "TemplateMatch",
-            "param":{
-                "roi": [623,518,97,43],
-                "template": ["QuickSetup.png"],
                 "threshold": 0.95,
                 "green_mask": true
             }
@@ -153,19 +125,27 @@
         "action": {
             "type": "Click"
         },
-        "next": ["世界寻宝_刷新船"]
-    ,
+        "next": [
+            "世界寻宝_确认"
+        ],
         "focus": {
             "Node.Action.Starting": "快速布阵"
         }
     },
-    "世界寻宝_确认":{
+    "世界寻宝_确认": {
         "timeout": 1000,
-        "recognition":{
+        "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [792,493,139,56],
-                "template": ["TreasureConfirm.png"],
+            "param": {
+                "roi": [
+                    792,
+                    493,
+                    139,
+                    56
+                ],
+                "template": [
+                    "TreasureConfirm.png"
+                ],
                 "threshold": 0.95,
                 "green_mask": true
             }
@@ -173,19 +153,29 @@
         "action": {
             "type": "Click"
         },
-        "next": ["世界寻宝_确认2"], 
-        "on_error": ["世界寻宝_快速布阵"]
-    ,
+        "next": [
+            "世界寻宝_确认2"
+        ],
+        "on_error": [
+            "世界寻宝_快速布阵"
+        ],
         "focus": {
             "Node.Action.Starting": "确认寻宝布阵"
         }
     },
-    "世界寻宝_确认2":{
-        "recognition":{
+    "世界寻宝_确认2": {
+        "recognition": {
             "type": "TemplateMatch",
-            "param":{
-                "roi": [540,288,295,136],
-                "template": ["TreasureConfirm2.png"],
+            "param": {
+                "roi": [
+                    540,
+                    288,
+                    295,
+                    136
+                ],
+                "template": [
+                    "TreasureConfirm2.png"
+                ],
                 "threshold": 0.95,
                 "green_mask": true
             }
@@ -193,8 +183,9 @@
         "action": {
             "type": "Click"
         },
-        "next": ["世界寻宝_刷新船"]
-    ,
+        "next": [
+            "世界寻宝_刷新船"
+        ],
         "focus": {
             "Node.Action.Starting": "二次确认寻宝"
         }
@@ -225,13 +216,13 @@
         ],
         "on_error": [
             "世界寻宝_冷却"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "寻宝按钮已灰"
         }
     },
     "世界寻宝_刷新船": {
+        "timeout": 50000,
         "rate_limit": 2000,
         "pre_delay": 500,
         "post_delay": 500,
@@ -255,18 +246,57 @@
             "type": "Click",
             "param": {
                 "target": true,
-                "target_offset": [3, 3, 0, 0]
+                "target_offset": [
+                    3,
+                    3,
+                    0,
+                    0
+                ]
             }
         },
         "repeat": 3,
         "repeat_delay": 1500,
         "next": [
+            "世界寻宝_消耗金币",
             "世界寻宝_开始寻宝"
         ],
-        "on_error": ["世界寻宝_寻宝亮2"]
-    ,
+        "on_error": [
+            "世界寻宝_寻宝亮"
+        ],
         "focus": {
             "Node.Action.Starting": "刷新寻宝船"
+        }
+    },
+    "世界寻宝_消耗金币": {
+        "timeout": 3000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    554,
+                    320,
+                    272,
+                    44
+                ],
+                "expected": ".*消耗10金币.*"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    737,
+                    382,
+                    18,
+                    16
+                ]
+            }
+        },
+        "next": [
+            "世界寻宝_开始寻宝"
+        ],
+        "focus": {
+            "Node.Action.Starting": "判断消耗金币刷新"
         }
     },
     "世界寻宝_开始寻宝": {
@@ -290,8 +320,7 @@
         },
         "next": [
             "世界寻宝_寻宝灰"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "开始寻宝"
         }
@@ -314,8 +343,7 @@
         "action": "DoNothing",
         "next": [
             "世界寻宝_返回"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "检查寻宝次数"
         }
@@ -341,8 +369,7 @@
         },
         "next": [
             "世界寻宝_返回"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "检查成功次数"
         }
@@ -366,8 +393,7 @@
         },
         "action": {
             "type": "Click"
-        }
-    ,
+        },
         "focus": {
             "Node.Action.Starting": "点击返回"
         }
@@ -395,22 +421,22 @@
             "type": "DoNothing"
         },
         "next": [
-            "世界寻宝_寻宝亮2",
+            "世界寻宝_寻宝亮",
             "世界寻宝_寻宝灰"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "检测返回状态"
         }
     },
     "世界寻宝_冷却": {
-        "pre_delay": 300000,
+        "rate_limit": 50000,
+        "timeout": 300000,
         "next": [
-            "世界寻宝_寻宝亮1"
+            "世界寻宝_寻宝亮"
         ],
-        "timeout": 3000,
-        "on_error": ["世界寻宝_寻宝灰"]
-    ,
+        "on_error": [
+            "世界寻宝_寻宝灰"
+        ],
         "focus": {
             "Node.Action.Starting": "冷却等待"
         }

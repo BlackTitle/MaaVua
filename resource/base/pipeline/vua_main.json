@@ -1,4 +1,14 @@
 {
+    "First": {
+        "timeout": 3000,
+        "next": [
+            "收起活动栏",
+            "收起状态栏"
+        ],
+        "on_error": [
+            "状态判定"
+        ]
+    },
     "状态判定": {
         "timeout": -1,
         "next": [
@@ -20,8 +30,7 @@
             "黄色主线",
             "寻找对战循环"
         ],
-        "rate_limit": 500
-    ,
+        "rate_limit": 500,
         "focus": {
             "Node.Action.Starting": "综合状态判定"
         }
@@ -46,8 +55,7 @@
             "任务下一步",
             "寻找对战循环"
         ],
-        "rate_limit": 500
-    ,
+        "rate_limit": 500,
         "focus": {
             "Node.Action.Starting": "无黄色状态判定"
         }
@@ -69,8 +77,7 @@
         ],
         "on_error": [
             "状态判定无黄色"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "寻找对战目标"
         }
@@ -99,8 +106,7 @@
             "状态判定"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "收起活动栏"
         }
@@ -129,8 +135,7 @@
             "状态判定"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "收起状态栏"
         }
@@ -156,8 +161,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "进入副本"
         }
@@ -186,8 +190,7 @@
             "任务对话",
             "黄色主线",
             "状态判定无黄色"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "跳过对话文本"
         }
@@ -217,8 +220,7 @@
         "on_error": [
             "状态判定无黄色"
         ],
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "攻击怪物"
         }
@@ -248,8 +250,7 @@
         ],
         "on_error": [
             "状态判定无黄色"
-        ]
-    ,
+        ],
         "focus": {
             "Node.Action.Starting": "对战结束确认"
         }
@@ -277,8 +278,7 @@
         "next": [
             "状态判定无黄色"
         ],
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "关闭对战窗口"
         }
@@ -315,8 +315,7 @@
             "状态判定"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "章节结束"
         }
@@ -343,8 +342,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "寻找应战目标1"
         }
@@ -371,8 +369,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "寻找应战目标2"
         }
@@ -399,8 +396,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "寻找应战目标3"
         }
@@ -427,8 +423,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战1"
         }
@@ -455,8 +450,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战2"
         }
@@ -483,8 +477,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战6"
         }
@@ -511,8 +504,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战3"
         }
@@ -539,8 +531,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战4"
         }
@@ -567,8 +558,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "脚下找补应战5"
         }
@@ -600,8 +590,7 @@
             "状态判定无黄色"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "检测黄色主线"
         }
@@ -642,8 +631,7 @@
         "on_error": [
             "状态判定无黄色"
         ],
-        "rate_limit": 500
-    ,
+        "rate_limit": 500,
         "focus": {
             "Node.Action.Starting": "接取任务"
         }
@@ -682,8 +670,7 @@
         "on_error": [
             "状态判定无黄色"
         ],
-        "rate_limit": 500
-    ,
+        "rate_limit": 500,
         "focus": {
             "Node.Action.Starting": "任务对话"
         }
@@ -709,8 +696,7 @@
             "结束任务"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "任务下一步"
         }
@@ -740,8 +726,7 @@
             "任务判断击败"
         ],
         "rate_limit": 500,
-        "timeout": 1000
-    ,
+        "timeout": 1000,
         "focus": {
             "Node.Action.Starting": "结束任务"
         }
@@ -773,8 +758,7 @@
             "任务判断可以完成2"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "判断任务可完成"
         }
@@ -794,8 +778,10 @@
                                     170,
                                     80
                                 ],
-                                "template": ["keyi.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "keyi.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
@@ -810,8 +796,10 @@
                                     170,
                                     80
                                 ],
-                                "template": ["wancheng.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "wancheng.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
@@ -829,8 +817,7 @@
             "任务判断可以完成3"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "判断任务可完成2"
         }
@@ -850,15 +837,17 @@
                                     170,
                                     80
                                 ],
-                                "template": ["ke.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "ke.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
                     },
                     {
                         "recognition": {
-                             "type": "TemplateMatch",
+                            "type": "TemplateMatch",
                             "param": {
                                 "roi": [
                                     1171,
@@ -866,8 +855,10 @@
                                     170,
                                     80
                                 ],
-                                "template": ["yiwancheng.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "yiwancheng.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
@@ -885,8 +876,7 @@
             "状态判定"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "判断任务可完成3"
         }
@@ -898,7 +888,7 @@
                 "all_of": [
                     {
                         "recognition": {
-                             "type": "TemplateMatch",
+                            "type": "TemplateMatch",
                             "param": {
                                 "roi": [
                                     1171,
@@ -906,15 +896,17 @@
                                     170,
                                     80
                                 ],
-                                "template": ["keyiwan.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "keyiwan.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
                     },
                     {
                         "recognition": {
-                             "type": "TemplateMatch",
+                            "type": "TemplateMatch",
                             "param": {
                                 "roi": [
                                     1171,
@@ -922,8 +914,10 @@
                                     170,
                                     80
                                 ],
-                                "template": ["cheng.png"],
-                                "threshold": 0.7,
+                                "template": [
+                                    "cheng.png"
+                                ],
+                                "threshold": 0.4,
                                 "green_mask": true
                             }
                         }
@@ -941,8 +935,7 @@
             "状态判定"
         ],
         "rate_limit": 500,
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "判断任务可完成4"
         }
@@ -984,8 +977,7 @@
         "on_error": [
             "状态判定无黄色"
         ],
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "判断击败任务"
         }
@@ -1012,8 +1004,7 @@
         "on_error": [
             "状态判定"
         ],
-        "rate_limit": 500
-    ,
+        "rate_limit": 500,
         "focus": {
             "Node.Action.Starting": "Boss任务检查"
         }
@@ -1039,8 +1030,7 @@
         "next": [
             "状态判定"
         ],
-        "timeout": 500
-    ,
+        "timeout": 500,
         "focus": {
             "Node.Action.Starting": "跳过提示弹窗"
         }
